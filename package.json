@@ -1,6 +1,6 @@
 {
   "name": "@hannoeru/nuxt-otel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "OpenTelemetry module for Nuxt 3",
   "repository": "https://github.com/hannoeru/nuxt-otel",
   "license": "MIT",
@@ -20,7 +20,9 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
