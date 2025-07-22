@@ -1,4 +1,3 @@
-import type { Context, Span } from '@opentelemetry/api'
 import { context, SpanStatusCode, trace } from '@opentelemetry/api'
 import {
   ATTR_CLIENT_ADDRESS,
@@ -29,16 +28,6 @@ import { defineNitroPlugin, useRuntimeConfig } from 'nitropack/runtime'
 import { getFilter, logger } from '../../../utils'
 import { TRACER_NAME } from '../../constants'
 import { getRequestHeaderAttributes, getResponseHeaderAttributes, getRouteName, updateRouteAttributes } from '../utils'
-
-declare module 'h3' {
-  interface H3EventContext {
-    otel: {
-      span: Span
-      ctx: Context
-      _endTime?: number
-    }
-  }
-}
 
 export default defineNitroPlugin((nitroApp) => {
   const config = useRuntimeConfig().opentelemetry

@@ -1,8 +1,11 @@
+import type { Span } from '@opentelemetry/sdk-trace-base'
+
 export default defineEventHandler((e) => {
-  const parentSpanId = e.context.otel.span.parentSpanContext?.spanId
+  const span = e.context.otel.span as Span
+  const parentSpanId = span.parentSpanContext?.spanId
   return {
-    name: e.context.otel.span.name,
-    traceId: e.context.otel.span.spanContext().traceId,
+    name: span.name,
+    traceId: span.spanContext().traceId,
     parentSpanId,
   }
 })

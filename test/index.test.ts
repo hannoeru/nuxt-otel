@@ -7,7 +7,7 @@ const dummyTrace = '00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-01'
 const dummyTrace2 = '00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-01'
 
 await setup({
-  rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)),
+  rootDir: fileURLToPath(new URL('../playground', import.meta.url)),
   server: true,
   browser: false,
   setupTimeout: 120 * 1000,
@@ -91,7 +91,7 @@ describe('traces', async () => {
 
 describe('names', () => {
   it('should name span with method and path', async () => {
-    const data = await $fetch('/api/dynamic/test')
-    expect(data).toBe('GET /api/dynamic/test')
+    const { name } = await $fetch<any>('/api/dynamic/test')
+    expect(name).toBe('GET /api/dynamic/test')
   })
 })

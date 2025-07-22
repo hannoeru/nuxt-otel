@@ -1,5 +1,6 @@
 import type { Resolver } from '@nuxt/kit'
 import { addServerTemplate, createResolver, defineNuxtModule, logger } from '@nuxt/kit'
+import type { Context, Span } from '@opentelemetry/api'
 import { defu } from 'defu'
 import type { Nitro } from 'nitropack'
 import type { PresetName } from 'nitropack/presets'
@@ -10,6 +11,16 @@ import { getInstrumentedEntryFileForPreset, getPublicAssets } from './utils'
 declare module '@nuxt/schema' {
   interface RuntimeConfig {
     opentelemetry: ModuleOptions
+  }
+}
+
+declare module 'h3' {
+  interface H3EventContext {
+    otel: {
+      span: Span
+      ctx: Context
+      _endTime?: number
+    }
   }
 }
 
