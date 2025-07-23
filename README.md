@@ -176,6 +176,11 @@ OTEL_LOG_LEVEL=debug
 - [OpenTelemetry Documentation](https://opentelemetry.io/docs/)
 - [OpenTelemetry JavaScript SDK](https://github.com/open-telemetry/opentelemetry-js)
 
+## Credits
+
+- [nitro-opentelemetry](https://github.com/huang-julien/nitro-opentelemetry)
+- [@scayle/nuxt-opentelemetry](https://www.npmjs.com/package/@scayle/nuxt-opentelemetry)
+
 ## License
 
 [MIT](./LICENSE)
