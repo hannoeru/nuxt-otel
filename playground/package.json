@@ -9,6 +9,6 @@
   },
   "dependencies": {
     "@opentelemetry/sdk-trace-base": "^2.0.1",
-    "nuxt": "^3.17.6"
+    "nuxt": "^4.0.1"
   }
 }
