@@ -58,7 +58,7 @@ export default defineNuxtConfig({
 export default defineNuxtConfig({
   modules: ['@hannoeru/nuxt-otel'],
   otel: {
-    pathBlocklist: '^/api/health',
+    ignorePath: '^/api/health',
     requestHeaders: ['x-custom-header', 'content'],
     responseHeaders: ['x-custom-header', 'content'],
     trace: {

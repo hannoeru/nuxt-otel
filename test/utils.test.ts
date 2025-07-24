@@ -3,7 +3,7 @@ import { getFilter, getInstrumentedEntryFileForPreset } from '../src/utils'
 
 describe('utility functions', () => {
   describe('getFilter', () => {
-    it('returns false function when no pathBlocklist provided', () => {
+    it('returns false function when no ignorePath provided', () => {
       const filter = getFilter()
       expect(filter('/any/path')).toBe(false)
     })

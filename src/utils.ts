@@ -8,16 +8,16 @@ import type { Nuxt } from 'nuxt/schema'
 
 export const logger = consola.withTag('nuxt-otel')
 
-export function getFilter(pathBlocklist?: string): (path: string) => boolean {
-  if (!pathBlocklist) {
+export function getFilter(ignorePath?: string): (path: string) => boolean {
+  if (!ignorePath) {
     return _path => false
   }
   try {
-    const regex = new RegExp(pathBlocklist)
+    const regex = new RegExp(ignorePath)
     return path => regex.test(path)
   }
   catch {
-    return path => path.includes(pathBlocklist)
+    return path => path.includes(ignorePath)
   }
 }
 

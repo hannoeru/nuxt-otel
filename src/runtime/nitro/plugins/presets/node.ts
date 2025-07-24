@@ -14,7 +14,7 @@ function ignorePath(path: string) {
 
 export default defineNitroPlugin((nitroApp) => {
   const config = useRuntimeConfig()
-  const filter = getFilter(config.opentelemetry.pathBlocklist)
+  const filter = getFilter(config.opentelemetry.ignorePath)
   const sdk = new NodeSDK({
     // contextManager: new AsyncLocalStorageContextManager(),
     instrumentations: [

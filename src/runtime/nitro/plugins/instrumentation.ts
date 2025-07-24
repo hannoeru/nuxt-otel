@@ -31,7 +31,7 @@ import { getRequestHeaderAttributes, getResponseHeaderAttributes, getRouteName, 
 
 export default defineNitroPlugin((nitroApp) => {
   const config = useRuntimeConfig().opentelemetry
-  const filter = getFilter(config.pathBlocklist)
+  const filter = getFilter(config.ignorePath)
   const index = nitroApp.h3App.stack.findIndex(
     layer => layer.handler.__resolve__,
   )
