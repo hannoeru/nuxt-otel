@@ -55,7 +55,6 @@ const module = defineNuxtModule<ModuleOptions>({
     configKey: 'otel',
     version: '0.0.1',
     compatibility: {
-      bridge: false,
       nuxt: '>=3.10',
     },
   },
