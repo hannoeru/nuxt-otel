@@ -39,7 +39,7 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "typecheck": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "nuxt-module-build prepare && pnpm run build"
   },
   "dependencies": {
     "@nuxt/kit": "^4.0.1",
