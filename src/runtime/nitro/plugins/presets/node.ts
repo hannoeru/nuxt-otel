@@ -3,7 +3,7 @@ import assets from '#otel/public-assets'
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
 import { NodeSDK } from '@opentelemetry/sdk-node'
 import { defineNitroPlugin, useRuntimeConfig } from 'nitropack/runtime'
-import { getFilter, logger } from '../../../../utils'
+import { getFilter, logger } from '../../../utils'
 
 function ignorePath(path: string) {
   return path.startsWith('/_nuxt')

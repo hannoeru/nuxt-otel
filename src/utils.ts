@@ -1,25 +1,9 @@
 import type { Resolver } from '@nuxt/kit'
-import { consola } from 'consola'
 import { genImport } from 'knitwork'
 import type { PresetName } from 'nitropack/presets'
 import { existsSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import type { Nuxt } from 'nuxt/schema'
-
-export const logger = consola.withTag('nuxt-otel')
-
-export function getFilter(ignorePath?: string): (path: string) => boolean {
-  if (!ignorePath) {
-    return _path => false
-  }
-  try {
-    const regex = new RegExp(ignorePath)
-    return path => regex.test(path)
-  }
-  catch {
-    return path => path.includes(ignorePath)
-  }
-}
 
 export function getInstrumentedEntryFileForPreset(preset: PresetName, baseEntry: string, include?: string[], exclude?: string[]) {
   let entryFile

@@ -25,8 +25,8 @@ import {
 } from 'h3'
 
 import { defineNitroPlugin, useRuntimeConfig } from 'nitropack/runtime'
-import { getFilter, logger } from '../../../utils'
 import { TRACER_NAME } from '../../constants'
+import { getFilter, logger } from '../../utils'
 import { getRequestHeaderAttributes, getResponseHeaderAttributes, getRouteName, updateRouteAttributes } from '../utils'
 
 export default defineNitroPlugin((nitroApp) => {

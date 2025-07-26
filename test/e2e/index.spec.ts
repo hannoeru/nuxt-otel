@@ -7,9 +7,14 @@ const dummyTrace = '00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-01'
 const dummyTrace2 = '00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-01'
 
 await setup({
-  rootDir: fileURLToPath(new URL('../playground', import.meta.url)),
+  rootDir: fileURLToPath(new URL('../../playground', import.meta.url)),
   server: true,
   browser: false,
+  env: {
+    OTEL_TRACES_EXPORTER: 'console',
+    OTEL_METRICS_EXPORTER: 'console',
+    OTEL_LOGS_EXPORTER: 'console',
+  },
   setupTimeout: 120 * 1000,
 })
 
