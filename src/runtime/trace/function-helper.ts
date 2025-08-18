@@ -2,8 +2,15 @@ import { context, SpanStatusCode, trace } from '@opentelemetry/api'
 import { ATTR_CODE_FUNCTION_NAME } from '@opentelemetry/semantic-conventions'
 import { ATTR_CODE_FUNCTION_TYPE, TRACER_NAME } from '../constants'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const wrapperFunctions = new WeakMap<any, any>()
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function __nuxtOtelWrap(name: string, fn: any) {
+  if (typeof fn !== 'function')
+    return fn
+  if (wrapperFunctions.has(fn))
+    return wrapperFunctions.get(fn)!
   const wrappred = function (this: any, ...args: any[]) {
     const tracer = trace.getTracer(TRACER_NAME)
     const span = tracer.startSpan(name, {
@@ -38,5 +45,7 @@ export function __nuxtOtelWrap(name: string, fn: any) {
     span.end()
     return result
   }
+  Object.defineProperty(wrappred, 'length', { value: fn.name || name })
+  wrapperFunctions.set(fn, wrappred)
   return wrappred
 }
