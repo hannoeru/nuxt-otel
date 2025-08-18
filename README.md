@@ -23,6 +23,16 @@ Install the module to your Nuxt application:
 npx nuxi module add @hannoeru/nuxt-otel
 ```
 
+For Vercel deployments, also install the optional peer dependency:
+
+```bash
+npm install @vercel/otel
+# or
+yarn add @vercel/otel
+# or
+pnpm add @vercel/otel
+```
+
 That's it! OpenTelemetry instrumentation is now enabled in your Nuxt app ✨
 
 ## Configuration
@@ -118,7 +128,7 @@ docker-compose -f playground/compose.yml up -d
 #### Supported platforms
 
 - **Node.js**: Use the default configuration for Node.js applications.
-- **Vercel**: Use the Vercel preset for automatic instrumentation.
+- **Vercel**: Use the Vercel preset for automatic instrumentation. Requires installing the optional `@vercel/otel` peer dependency.
 
 ## API Routes Instrumentation
 
