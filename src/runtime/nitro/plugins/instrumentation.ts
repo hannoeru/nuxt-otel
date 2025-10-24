@@ -1,3 +1,6 @@
+// This file is based on code from: https://www.npmjs.com/package/@scayle/nuxt-opentelemetry?activeTab=code
+// Under the MIT license: https://www.npmjs.com/package/@scayle/nuxt-opentelemetry?activeTab=code
+
 import { context, SpanStatusCode, trace } from '@opentelemetry/api'
 import {
   ATTR_CLIENT_ADDRESS,
